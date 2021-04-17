@@ -9,8 +9,6 @@ require("dotenv").config();
   // }
 // });
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, "maxrabets", "123456", {
-  dialect: "postgres"
-});
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 module.exports = sequelize;
