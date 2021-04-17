@@ -1,5 +1,8 @@
 var pg = require('pg');
-pg.defaults.ssl.rejectUnauthorized = false;
+pg.defaults.ssl = {
+      require: true,
+      rejectUnauthorized: false
+    }
 
 const Sequelize = require("sequelize");
 require("dotenv").config();
