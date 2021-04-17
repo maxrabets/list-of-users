@@ -8,11 +8,10 @@ const homeRouter = require("./routes/homeRouter.js");
 require("dotenv").config();
 
 app.use(express.static(__dirname + "/public"));
-
+app.use(cookieParser(process.env.SECRET));
 app.use("/registration", registrationRouter);;
 app.use("/login", loginRouter);
 app.use("/", homeRouter);
-app.use(cookieParser("secret"));
 
 sequelize.sync({force: false}).then(result=>{
   console.log("OK");
